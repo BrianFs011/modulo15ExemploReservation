@@ -26,7 +26,16 @@ public class Program {
 			System.out.print("Check-out date (dd/mm/yyyy): ");
 			Date checkOut = sdf.parse(sc.next());
 			Reservation res = new Reservation(roomNumber, checkIn, checkOut);
+			System.out.println(res);
 			
+			System.out.println();
+			
+			System.out.println("Enter data to update the reservation:");
+			System.out.print("Check-in date (dd/mm/yyyy): ");
+			Date checkIn1 = sdf.parse(sc.next());		
+			System.out.print("Check-out date (dd/mm/yyyy): ");
+			Date checkOut1 = sdf.parse(sc.next());
+			res = new Reservation(roomNumber, checkIn1, checkOut1);
 			System.out.println(res);
 		}
 		catch(ParseException e){	
@@ -34,6 +43,9 @@ public class Program {
 		}
 		catch(DomainException e) {
 			System.out.println("Error in reservation: "+e.getMessage());
+		}
+		catch(RuntimeException e) {
+			System.out.println("Unexpected error");
 		}
 		
 		
